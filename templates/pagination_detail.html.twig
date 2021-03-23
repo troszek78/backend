@@ -1,0 +1,22 @@
+{% block paginationDetail %}
+    <div class="{{ justify }}">
+        <span>
+            <span class="pagination-info">
+            </span>
+            <span class="btn-group dropdown dropup">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                    <span class="page-size">
+                    </span>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu row-pages">
+                    <li class="dropdown-item data-pages" data-pages="1">1</li>
+                    <li class="dropdown-item data-pages" data-pages="5">5</li>
+                    <li class="dropdown-item data-pages" data-pages="10">10</li>
+                    <li class="dropdown-item data-pages" data-pages="25">25</li>
+                    <li class="dropdown-item data-pages" data-pages="50">50</li>
+                    <li class="dropdown-item data-pages" data-pages="100">100</li>
+                </ul>
+            </span> rows per page</span>
+    </div>
+{% endblock %}

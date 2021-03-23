@@ -1,0 +1,21 @@
+.panel-body {
+    background-color: #e8e3e37d;
+    margin: 1em auto;
+    max-width: 60em;
+    width: 100%;
+    font: 18px/1.5 sans-serif;
+    padding:1em;
+}
+.panel {
+    background-color: #dbd0d05e;;
+    padding:1em;
+    margin-bottom: 1em;
+}
+
+.row {
+    margin-bottom: 1em;
+}
+.element-content {
+    padding:0.2em;
+    background-color: #ebf2f9;
+}

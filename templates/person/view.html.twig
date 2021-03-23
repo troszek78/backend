@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Person #{{ person.id }} {% endblock %}
+
+{% block body %}
+    <div class="panel col-md-12 col-xs-12">
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <h2 class="main-heading">
+                    Person #{{ person.id }}
+                </h2>
+            </div>
+            <div class="col-md-6 col-xs-6 text-right">
+                <a class="btn btn-primary" href="{{ path('person_edit', {'id' : person.id}) }}">Edit</a>
+            </div>
+        </div>
+        <div class="panel col-md-12 col-xs-12">
+            <div class="row">
+                <div class="col-md-6 col-xs-6">
+                    <div>
+                        <label>Name</label>
+                        <div class="element-content">
+                            {{ person.lName }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div>
+                        <label>Product Date</label>
+                        <div class="element-content">
+                            {{ person.fName }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-xs-6">
+                    <div>
+                        <label>Info</label>
+                        <div class="element-content">
+                            {{ person.login }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div>
+                        <label>Info</label>
+                        <div class="element-content">
+                            {{ person.stateLabel }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

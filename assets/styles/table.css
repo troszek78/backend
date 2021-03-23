@@ -1,0 +1,19 @@
+table {
+    clear: both;
+}
+.pagination-block {
+    /*width: 100%;*/
+    /*margin-bottom: 1rem;*/
+    /*color: #212529;*/
+}
+.pagination-row {
+    /*clear: both !important;*/
+    margin-bottom: 1rem;
+}
+li.dropdown-item {
+    cursor: pointer;
+}
+
+.sortable-column {
+    cursor: pointer;
+}

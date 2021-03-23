@@ -1,0 +1,39 @@
+{% block pagination %}
+    {%  set tp = 'App\\Component\\Table\\TableType'  %}
+    {% set items = pagination[place] %}
+    {% set countLeft = 0 %}
+    {%  if items.left is defined %}
+        {% set countLeft = items.left|length %}
+    {% endif %}
+
+    {% set countRight = 0 %}
+    {%  if items.right is defined %}
+        {% set countRight = items.right|length %}
+    {% endif %}
+
+    {%  set count = countLeft %}
+    {% if countRight > countLeft %}
+        {% set count = countRight %}
+    {% endif %}
+
+    <div class="pagination-block">
+        {% for i in 1..count %}
+            <div class="pagination-row d-flex">
+                {% if items.left[i-1] is defined %}
+                    {% if items.left[i-1] is constant( tp~'::DETAILS') %}
+                        {% include  'pagination_detail.html.twig'  with {'justify' : 'mr-auto'} %}
+                    {% else %}
+                        {% include  'pagination_item.html.twig'  with {'justify' : 'mr-auto'} %}
+                    {% endif %}
+                {% endif %}
+                {% if items.right[i-1] is defined %}
+                    {% if items.right[i-1] is constant( tp~'::DETAILS') %}
+                        {% include  'pagination_detail.html.twig'  with {'justify' : 'ml-auto'} %}
+                    {% else %}
+                        {% include  'pagination_item.html.twig'  with {'justify' : 'ml-auto'} %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

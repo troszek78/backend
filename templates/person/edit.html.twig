@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Person #{{ form.vars.value.id }}{% endblock %}
+{% block body %}
+    <div class="panel col-md-12 col-xs-12">
+        <h1>Edit Person #{{ form.vars.value.id }}</h1>
+
+        {% include 'person/form.html.twig' %}
+    </div>
+{% endblock %}

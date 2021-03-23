@@ -1,0 +1,67 @@
+{% block table %}
+<div class="panel">
+    {#{% if myVar in someOtherArray|keys %}#}
+    {%  set tp = 'App\\Component\\Table\\TableType'  %}
+    {% if table.errors is empty %}
+        {% set paginationItems = '' %}
+        {% if table.pagination.items is defined %}
+            {% set paginationItems = 'data-pagination-items=' ~ table.serializedPaginationItems %}
+        {% endif %}
+
+        <div class="table-block" id="{{ table.tableId }}" data-form-id="{{ table.form.form_id }}" {{ paginationItems }}>
+        {% block tableForm %}
+            {% if table.form.type is constant( tp~'::FORM_TYPE_TABLE') %}
+                <form
+                    id="{{ table.form.form_id }}"
+                    name="{{ table.form.form_id }}"
+                    method="{{ table.form.options.method }}"
+                    action="{{ table.form.options.action }}">
+                </form>
+            {%  endif %}
+        {% endblock %}
+
+        {% block tableError %}
+            <div id="{{ table.tableId }}-errors" class="ui-state-error panel">
+            </div>
+        {% endblock %}
+
+        {% if table.pagination.up is defined %}
+            {% block paginationTop %}
+                {% include  'pagination.html.twig'  with {'pagination' : table.pagination, 'place' : 'up'}  %}
+            {% endblock %}
+        {% endif %}
+        {% block tableHeader %}
+            <table id="{{ table.tableId ~ "-table" }}" class="table table-striped table-middle-aligned">
+                <thead>
+                <tr>
+                    {% for column in  table.columns %}
+                        <th scope="col" data-column='{{ column.json }}'>{{ column.label }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+        {% endblock %}
+        {% block tableBody %}
+            <tbody class="generic-tbody">
+                <tr>
+                    <td colspan="{{ table.columns|length }}">
+                        Your favorite table should be here.
+                    </td>
+                </tr>
+            </tbody>
+        {% endblock %}
+        {% block tablFooter %}
+            </table>
+        {% endblock %}
+        {% if table.pagination.down is defined %}
+            {% block paginationDown %}
+                {% include  'pagination.html.twig'  with {'pagination' : table.pagination, 'place' : 'down'}  %}
+            {% endblock %}
+        {% endif %}
+        </div>
+    {% else %}
+        {% block error %}
+            {{ dump(table.errors) }}
+        {% endblock %}
+    {% endif %}
+</div>
+{% endblock %}
